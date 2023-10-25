@@ -1,3 +1,4 @@
+// Managing the client side api calls
 const express = require("express");
 const next = require("next");
 const { createProxyMiddleware } = require("http-proxy-middleware");
