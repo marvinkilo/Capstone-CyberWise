@@ -14,8 +14,8 @@ stages:
 variables:
   # GitLab Container Registry username (replace with your GitLab username)
   CI_REGISTRY_USER: putta.reddy20
-  # GitLab personal access token with Container Registry write permissions (replace with your token)
-  CI_REGISTRY_PASSWORD: glft--JP6BPFjkGEM-8GtCCdL
+  # GitLab personal access token with Container Registry write permissions (replace with your token) glft--JP6BPFjkGEM-8GtCCdL
+  CI_REGISTRY_PASSWORD: "Dj@79555::"
 
 # Build stage
 build:
