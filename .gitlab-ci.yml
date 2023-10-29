@@ -1,0 +1,55 @@
+# Use the Docker executor and specify the Docker image
+image: docker:latest
+
+# Define the Docker service for running Docker commands in the GitLab Runner
+services:
+  - docker:dind
+
+# Define the stages of the CI/CD pipeline
+stages:
+  - build
+  - deploy
+
+# Define variables that will be used in the CI/CD pipeline
+variables:
+  # GitLab Container Registry username (example)
+  CI_REGISTRY_USER: your-gitlab-username
+  # GitLab personal access token with Container Registry write permissions (example)
+  CI_REGISTRY_PASSWORD: your-gitlab-personal-access-token
+
+# Build stage
+build:
+  stage: build
+  script:
+    # Build the Docker image from the Dockerfile in the current directory
+    - docker build -t my-cyberwise-app .
+
+    # Log in to GitLab Container Registry with the provided username and personal access token
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+    # Tag the Docker image for the GitLab Container Registry
+    - docker tag my-cyberwise-app:latest $CI_REGISTRY_IMAGE:latest
+
+    # Push the Docker image to the GitLab Container Registry
+    - docker push $CI_REGISTRY_IMAGE:latest
+
+# Deploy stage
+deploy:
+  stage: deploy
+  only:
+    - main  # Deploy only when changes are pushed to the main branch
+  script:
+    # Log in to GitLab Container Registry with the provided username and personal access token
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+    # Pull the latest Docker image from the GitLab Container Registry
+    - docker pull $CI_REGISTRY_IMAGE:latest
+
+    # Stop the existing container if it exists, ignore errors if it doesn't
+    - docker stop my-cyberwise-app || true
+
+    # Remove the existing container if it exists, ignore errors if it doesn't
+    - docker rm my-cyberwise-app || true
+
+    # Run the updated container on port 80, naming it "my-cyberwise-app"
+    - docker run -d -p 8080:80 --name my-cyberwise-app $CI_REGISTRY_IMAGE:latest
