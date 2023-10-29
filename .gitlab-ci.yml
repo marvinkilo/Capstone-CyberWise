@@ -12,10 +12,10 @@ stages:
 
 # Define variables that will be used in the CI/CD pipeline
 variables:
-  # GitLab Container Registry username (example)
-  CI_REGISTRY_USER: your-gitlab-username
-  # GitLab personal access token with Container Registry write permissions (example)
-  CI_REGISTRY_PASSWORD: your-gitlab-personal-access-token
+  # GitLab Container Registry username (replace with your GitLab username)
+  CI_REGISTRY_USER: putta.reddy20
+  # GitLab personal access token with Container Registry write permissions (replace with your token)
+  CI_REGISTRY_PASSWORD: glft--JP6BPFjkGEM-8GtCCdL
 
 # Build stage
 build:
@@ -37,7 +37,7 @@ build:
 deploy:
   stage: deploy
   only:
-    - main  # Deploy only when changes are pushed to the main branch
+    - master  # Deploy only when changes are pushed to the master branch
   script:
     # Log in to GitLab Container Registry with the provided username and personal access token
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
@@ -52,4 +52,4 @@ deploy:
     - docker rm my-cyberwise-app || true
 
     # Run the updated container on port 80, naming it "my-cyberwise-app"
-    - docker run -d -p 8080:80 --name my-cyberwise-app $CI_REGISTRY_IMAGE:latest
+    - docker run -d -p 80:80 --name my-cyberwise-app $CI_REGISTRY_IMAGE:latest
