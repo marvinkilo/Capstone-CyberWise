@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Logs') {
       steps {
-        sh 'docker build -t CyberWise .'
+        sh 'ls -la'
       }
     }
 
