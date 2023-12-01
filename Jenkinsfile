@@ -7,14 +7,9 @@ pipeline {
       }
     }
 
-    stage('Logs') {
-      steps {
-        sh 'ls -la'
-      }
-    }
-
     stage('Build') {
       steps {
+        sh 'docker rmi -f marvinkilo/cyberwise'
         sh '''docker build   -f ./Dockerfile -t marvinkilo/cyberwise:latest .
 
 '''
