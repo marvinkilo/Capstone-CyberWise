@@ -15,10 +15,11 @@ pipeline {
 
     stage('Build') {
       steps {
+        sh 'docker rmi -f cyberwise '
         sh '''docker build   -t cyberwise .
 
 '''
-        sh 'docker run -p 5000:80 cyberwise '
+        sh 'docker run -p 5000:80 -d cyberwise '
       }
     }
 
