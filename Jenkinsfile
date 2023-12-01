@@ -32,5 +32,11 @@ pipeline {
       }
     }
 
+    stage('Email') {
+      steps {
+        emailext(subject: 'Details of build', body: 'Please go throught the log', attachLog: true, from: 'onlyforlabs007@gmail.com', to: 'marvin.kingpin007@gmail.com')
+      }
+    }
+
   }
 }
