@@ -31,6 +31,14 @@ pipeline {
         sh 'docker push marvinkilo/cyberwise:latest'
       }
     }
+    post {
+    always {
+      script {
+        if (currentBuild.currentResult == 'FAILURE') {
+          step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "abc.xyz@blabl.com", sendToIndividuals: true])
+        }
+      }
+    }
 
   }
 }
