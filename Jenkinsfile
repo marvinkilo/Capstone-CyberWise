@@ -33,5 +33,11 @@ pipeline {
       }
     }
 
+    stage('push') {
+      steps {
+        sh 'docker push marvinkilo/cyberwise:latest'
+      }
+    }
+
   }
 }
