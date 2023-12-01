@@ -18,6 +18,7 @@ pipeline {
         sh '''docker build   -t cyberwise .
 
 '''
+        sh 'docker run -p 5000:80 cyberwise '
       }
     }
 
