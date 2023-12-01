@@ -15,7 +15,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build   -t CyberWise .'
+        sh '''docker build   -t CyberWise .
+
+'''
       }
     }
 
