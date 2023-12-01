@@ -1,380 +1,50 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-	<title>CyberWise</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Quiz App using JavaScript - @code.scientist x @codingtorque</title>
 </head>
+
 <body>
+    <!-- Further code here -->
 
-    <nav>
-        <li><a class="active" href="index.html">CyberWise modified</a></li>
-        <li><a href="threatLandscape.html">Threat Landscape</a></li>
-        <li><a href="cyberHygiene.html">Cyber Hygiene</a></li>
-        <li><a href="protectYourData.html">Protect Your Data</a></li>
-        <li><a href="index.html#onlinePrivacy">Online Privacy</a></li>
-        <li><a href="socialEngineering.html">Social Engineering</a></li>
-        <li><a href="index.html#reportCyberIncidents">Report Cyber Incidents</a></li>
-    </nav>
-
-	<div class="image-container" style="padding-top: 20px;">
-		<img src="img/Design.png" style="max-width: 100%; height: 50%; width: auto; display: block; margin: 0 auto;">
-	</div>
-	
-	
-	
-	
-		
-		<!-- <div class="Gif">
-			<div class="Gif1">
-				<img src="img/gif/Gif1.gif" style="width:100%">
-			</div>	
-			<div class="Gif2">
-				<img src="img/gif/Gif2.gif" style="width:100%">
-			</div>	
-		</div> -->
-		<hr><br>
-		
-		<!-- Section 1: Welcome to CyberWise -->
-		<div style="text-align: center;">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			Welcome to <span style="background-color: #ff9900; padding: 5px 10px; border-radius: 5px; color: #fff;">Cyber</span>Wise
-			</h1>
-		</div>
-		
-		<div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			Welcome to CyberWise, your trusted companion in the digital world. We're here to help you navigate the online realm with confidence and security. Whether you're a digital newbie or a tech enthusiast, we've got you covered. Discover essential tips and knowledge to stay safe, secure, and cyber-savvy.
-			</p>
-		</div>
-		
-		<div>
-			<center>
-			<img src="img/cyberwise-team.jpg" alt="CyberWise Team" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		</div>
-		
-		<!-- Section 2: Threat Landscape -->
-		<div style="text-align: center;">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			  Explore the Evolving Threat Landscape
-			</h1>
-		  </div>
-		  
-		  <div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			  Dive into the world of cyber threats. Learn about malware, phishing attacks, ransomware, and data breaches. Stay informed about the risks and consequences of these threats and discover how to protect yourself.
-			</p>
-		  </div>
-		  
-		  <div>
-			<center>
-			  <img src="img/First page/Threat.png" alt="Threat Landscape" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		  </div>
+    <div class="start-screen">
+        <h1 class="quiz-heading">Let's test your knowledge with <span class="cyberwise-text">CyberWise</span> Quiz</h1>
+        <br><br><br>
+        <button id="start-button">Start</button>
+    </div>
+    
 
 
-		<!-- <div>
-			<center><img src="img/symptoms.jpg"></center>
-		</div>
-		
-		<div class="CauseSolution">
-			<div class="Causes">
-				<img src="img/block-one.jpg" style="width:100%">
-			</div>	
-			<div class="Causes">
-				<img src="img/block-two.jpg" style="width:100%">
-			</div>	
-		</div>	
-		<hr> -->
+    <div id="display-container">
+        <div class="header">
+            <div class="number-of-count">
+                <span class="number-of-question">1 of 3 questions</span>
+            </div>
+            <div class="timer-div">
+                <img src="stopwatch.png"
+                    width="20px" />
+                <span class="time-left">10s</span>
+            </div>
+        </div>
+        <div id="container">
+            <!-- questions and options will be displayed here -->
+        </div>
+        <button id="next-button">Next</button>
+    </div>
+    <div class="score-container hide">
+        <div id="user-score">Demo Score</div>
+        <button id="restart">Restart</button>
+    </div>
 
-
-		<!-- Section 3: Cyber Hygiene -->
-		<div style="text-align: center;">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			  Maintain Cyber Hygiene for Online Safety
-			</h1>
-		  </div>
-		  
-		  <div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			  Cyber hygiene is like washing your hands in the digital world. Learn how to create strong passwords, keep your software up-to-date, and browse the web securely. These simple steps are your armor against cyber threats.
-			</p>
-		  </div>
-		  
-		  <div>
-			<center>
-			  <img src="img/First page/hygiene.png" alt="Cyber Hygiene" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		  </div>
-		  <hr><br><hr>
-
-
-
-		  <!-- Section 4: Protect Your Data -->
-		  <div style="text-align: center;">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			  Protect Your Data - Fortify Your Digital Vault
-			</h1>
-		  </div>
-		  
-		  <div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			  Your data is precious. Discover how encryption safeguards it, explore secure storage solutions, and learn the importance of regular backups. Your digital vault deserves the best protection.
-			</p>
-		  </div>
-		  
-		  <div>
-			<center>
-			  <img src="img/First page/Data protection.png" alt="Protect Your Data" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		  </div>
-		  <hr>
-
-
-
-		<!-- Section 5: Online Privacy -->
-		<div style="text-align: center;" id="onlinePrivacy">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			  Guard Your Online Privacy
-			</h1>
-		  </div>
-		  
-		  <div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			  Your online privacy matters. Learn how to reduce online tracking, explore the benefits of using VPNs for anonymous browsing, and discover how to keep your social media interactions private and secure.
-			</p>
-		  </div>
-		  
-		  <div>
-			<center>
-			  <img src="img/First page/privacy.png" alt="Online Privacy" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		  </div>
-		  <hr> 
-
-		  <section class="followSteps" id="precautions">
-			<div class="stepHeading">
-				<div class="container text-center">
-					<h2>Online Privacy TIPS</h2>
-				</div>
-			</div>
-			<div class="steps-covid">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/updated_icons/icon-1.png" alt="icon">
-								<span>Use Strong Passwords </span>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/updated_icons/icon-2.png" alt="icon">
-								<span>Enable 2FA for all accounts  </span>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/updated_icons/icon-3.png" alt="icon">
-								<span>Update Your System regularly </span>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/updated_icons/icon-4.png" alt="icon">
-								<span>Dont share your information online</span>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/icon-5.png" alt="icon">
-								<span>Stay informed,stay secured </span>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="covidThumb">
-								<img src="img/icons/updated_icons/icon-6.png" alt="icon">
-								<span>Secure your webcam and microphone </span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<hr>
-
-		    <!-- Section 6: Social Engineering -->
-		<div style="text-align: center;">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			Beware of Social Engineering Tactics
-			</h1>
-		</div>
-		
-		<div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			Cybercriminals often use psychology to manipulate individuals into revealing confidential information. Explore the world of social engineering and learn how to protect yourself from these tactics.
-			</p>
-		</div>
-		
-		<div>
-			<center>
-			<img src="img/First page/social_engineering.png" alt="Social Engineering" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		</div>
-
-		
-
-		<!--Section 7: Report Cyber Incidents  -->
-		<div style="text-align: center;" id="reportCyberIncidents">
-			<h1 style="font-family: Arial, sans-serif; font-size: 36px; line-height: 1.5; color: #3366cc;">
-			  Be the Digital Vigilante - Report Cyber Incidents
-			</h1>
-		  </div>
-		  
-		  <div style="padding: 20px;">
-			<p style="font-size: 18px; color: #333; line-height: 1.5;">
-			  In this section, we empower you to take action against cyber threats. Learn how to report incidents effectively, find contact details for the right authorities, and understand the crucial role reporting plays in safeguarding the digital world.
-			</p>
-		  </div>
-		  
-		  <div>
-			<center>
-			  <img src="img/First page/Cyber_incidents.png" alt="Report Cyber Incidents" style="max-width: 100%; border-radius: 10px; margin-top: 20px;">
-			</center>
-		  </div>
-
-		  <div class="imp-info-area" id="impinfo">
-			<h3 class="important-heading">
-				<strong>Cyber Attacks Report & Response Centers</strong>
-			</h3>
-			<div class="block">
-				<div class="icon">
-					<img src="img/impinfo/icon-one.png" alt="" />
-				</div>
-				<div class="text-area">
-					<h3><strong>1930</strong></h3>
-					<p>Dial Cyber Crime Helpline Number</p>
-				</div>
-			</div>
-
-			<!-- <div class="block">
-				<div class="icon">
-					<a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" target="_blank">
-						<img src="img/impinfo/icon-two.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" target="_blank">
-					<h3><strong>States &amp; Union Territories</strong></h3>
-					<p></p></a>
-					<p><a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" target="_blank">View pdf for Helpline Number</a></p>
-				</div>
-			</div>
-				
-			<div class="block">
-				<div class="icon">
-					<a href="mailto:ncov2019@gov.in">	
-						<img src="img/impinfo/icon-three.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area">
-					<a href="mailto:ncov2019@gov.in">	
-						<h3><strong>ncov2019@gov.in</strong></h3>
-						<p>Helpline Email ID </p>
-					</a>
-				</div>
-			</div>
-			
-				
-			<div class="block">
-				<div class="icon">
-					<a href="https://www.mohfw.gov.in/pdf/SOPforqurantine.pdf" target="_blank">
-						<img src="img/impinfo/icon-four.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="https://www.mohfw.gov.in/pdf/SOPforqurantine.pdf" target="_blank">
-						<h3><strong>States/UTs for quarantine</strong></h3>
-					</a>
-					<a href="https://www.mohfw.gov.in/pdf/SOPforqurantine.pdf" target="_blank">
-						<p>Guidelines</p>
-					</a> 
-				</div>		
-			</div>
-		</div>
-		<br><hr><br>
- -->
- 
-		  
-		<div class="social-hub" id="socialhub">
-			<h3 class="important-heading">
-				<strong>Social Links for Cybersecurity Help</strong>
-			</h3>
-			<div class="block whatsapp">
-				<div class="icon">
-					<a href="" target="_blank">
-						<img src="img/icons/whatsapp.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="" target="_blank">
-					<h3><strong>Help Line numbers</strong></h3></a>
-					<p><a href="https://wa.me/919013353535?text=Hi" target="_blank">WhatsApp</a></p>
-				</div>
-			</div>
-
-			<div class="block telegram">
-				<div class="icon">
-					<a href="" target="_blank">
-						<img src="img/icons/telegram.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="" target="_blank">
-					<h3><strong>Cybercell telegram channel</strong></h3>
-					<p></p></a>
-					<p><a href="" target="_blank">Telegram</a></p>
-				</div>
-			</div>
-				
-			<div class="block messenger">
-				<div class="icon">
-					<a href="" target="_blank">
-						<img src="img/icons/messenger.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="https://www.messenger.com/t/MyGovIndia" target="_blank">
-					<h3><strong>Cybercell Facebook Page</strong></h3>
-					<p></p></a>
-					<p><a href="" target="_blank">Facebook Messenger</a></p>
-				</div>
-			</div>
-				
-			<div class="block facebook">
-				<div class="icon">
-					<a href="" target="_blank">
-						<img src="img/icons/facebook.png" alt="" />
-					</a>
-				</div>
-				<div class="text-area"> 
-					<a href="" target="_blank">
-					<h3><strong>Cybercell facebook page</strong></h3>
-					<p></p></a>
-					<p><a href="" target="_blank">Facebook Page</a></p>
-				</div>
-			</div>
-		</div>
-		<hr>
-	</div>
-
-	<footer>
-		<p>Authors: Dhanunjay Reddy</a>, Rushi,  Deva </p>
-	</footer>
-	
-
+    <script src="script.js"></script>
 </body>
+
 </html>
