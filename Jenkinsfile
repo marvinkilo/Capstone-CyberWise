@@ -16,7 +16,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'docker rmi -f marvinkilo/cyberwise '
-        sh '''docker build   -t marvinkilo/cyberwise .
+        sh '''docker build   -t marvinkilo/cyberwise:latest .
 
 '''
       }
@@ -35,7 +35,7 @@ pipeline {
     stage('push') {
       steps {
         sh 'docker image rm marvinkilo/cyberwise'
-        sh 'docker push marvinkilo/cyberwise'
+        sh 'docker push marvinkilo/cyberwise:latest'
       }
     }
 
