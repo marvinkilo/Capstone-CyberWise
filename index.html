@@ -4,11 +4,35 @@
 	<title>CyberWise</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script>
+		window.addEventListener('beforeunload', function (e) {
+			if (!localStorage.getItem('quizAttempted')) {
+				var confirmationMessage = 'Are you sure you want to leave? Take the quiz to test your knowledge.';
+				e.returnValue = confirmationMessage;
+				return confirmationMessage;
+			}
+		});
+	
+		function markQuizAttempted() {
+			localStorage.setItem('quizAttempted', 'true');
+			window.location.href = 'Quizz/quiz.html';
+		}
+	
+		document.addEventListener('DOMContentLoaded', function () {
+			var quizPopup = document.getElementById('quizPopup');
+			if (quizPopup && !localStorage.getItem('quizAttempted')) {
+				quizPopup.style.display = 'block';
+			}
+		});
+	</script>
+	
+    
+	
 </head>
 <body>
 
     <nav>
-        <li><a class="active" href="index.html">CyberWise</a></li>
+        <li><a class="active" href="index.html">CyberWise modified</a></li>
         <li><a href="threatLandscape.html">Threat Landscape</a></li>
         <li><a href="cyberHygiene.html">Cyber Hygiene</a></li>
         <li><a href="protectYourData.html">Protect Your Data</a></li>
@@ -316,12 +340,12 @@
 			</h3>
 			<div class="block whatsapp">
 				<div class="icon">
-					<a href="" target="_blank">
+					<a href="https://wa.me/919013353535?text=Hi" target="_blank">
 						<img src="img/icons/whatsapp.png" alt="" />
 					</a>
 				</div>
 				<div class="text-area"> 
-					<a href="" target="_blank">
+					<a href="https://wa.me/919013353535?text=Hi" target="_blank">
 					<h3><strong>Help Line numbers</strong></h3></a>
 					<p><a href="https://wa.me/919013353535?text=Hi" target="_blank">WhatsApp</a></p>
 				</div>
@@ -329,12 +353,12 @@
 
 			<div class="block telegram">
 				<div class="icon">
-					<a href="" target="_blank">
+					<a href="https://t.me/s/cybersafeINDIA?q=%23facebook&before=1241" target="_blank">
 						<img src="img/icons/telegram.png" alt="" />
 					</a>
 				</div>
 				<div class="text-area"> 
-					<a href="" target="_blank">
+					<a href="https://t.me/s/cybersafeINDIA?q=%23facebook&before=1241" target="_blank">
 					<h3><strong>Cybercell telegram channel</strong></h3>
 					<p></p></a>
 					<p><a href="https://t.me/s/cybersafeINDIA?q=%23facebook&before=1241" target="_blank">Telegram</a></p>
@@ -343,7 +367,7 @@
 				
 			<div class="block messenger">
 				<div class="icon">
-					<a href="" target="_blank">
+					<a href="https://www.messenger.com/t/MyGovIndia" target="_blank">
 						<img src="img/icons/messenger.png" alt="" />
 					</a>
 				</div>
@@ -357,13 +381,13 @@
 				
 			<div class="block facebook">
 				<div class="icon">
-					<a href="" target="_blank">
+					<a href="https://www.facebook.com/BMCyberAwareness" target="_blank">
 						<img src="img/icons/facebook.png" alt="" />
 					</a>
 				</div>
 				<div class="text-area"> 
 					<a href="https://www.facebook.com/BMCyberAwareness" target="_blank">
-					<h3><strong>Cybercell facebook page</strong></h3>
+					<h3><strong>Cyber awareness facebook page</strong></h3>
 					<p></p></a>
 					<p><a href="https://www.facebook.com/BMCyberAwareness" target="_blank">Facebook Page</a></p>
 				</div>
@@ -371,6 +395,12 @@
 		</div>
 		<hr>
 	</div>
+	<div id="quizPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+        <p>Take the quiz to test your knowledge!</p>
+        <button onclick="markQuizAttempted(); document.getElementById('quizPopup').style.display='none';">Take Quiz</button>
+        <button onclick="document.getElementById('quizPopup').style.display='none';">Not Now</button>
+    </div>
+	
 
 	<footer>
 		<p>Authors: Dhanunjay Reddy</a>, Rushi,  Deva </p>
