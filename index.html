@@ -4,27 +4,7 @@
 	<title>CyberWise</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script>
-		window.addEventListener('beforeunload', function (e) {
-			if (!localStorage.getItem('quizAttempted')) {
-				var confirmationMessage = 'Are you sure you want to leave? Take the quiz to test your knowledge.';
-				e.returnValue = confirmationMessage;
-				return confirmationMessage;
-			}
-		});
 	
-		function markQuizAttempted() {
-			localStorage.setItem('quizAttempted', 'true');
-			window.location.href = 'Quizz/quiz.html';
-		}
-	
-		document.addEventListener('DOMContentLoaded', function () {
-			var quizPopup = document.getElementById('quizPopup');
-			if (quizPopup && !localStorage.getItem('quizAttempted')) {
-				quizPopup.style.display = 'block';
-			}
-		});
-	</script>
 	
     
 	
@@ -395,11 +375,7 @@
 		</div>
 		<hr>
 	</div>
-	<div id="quizPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-        <p>Take the quiz to test your knowledge!</p>
-        <button onclick="markQuizAttempted(); document.getElementById('quizPopup').style.display='none';">Take Quiz</button>
-        <button onclick="document.getElementById('quizPopup').style.display='none';">Not Now</button>
-    </div>
+	
 	
 
 	<footer>
